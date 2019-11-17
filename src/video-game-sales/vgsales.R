@@ -78,3 +78,17 @@ years_without_sales <- (smallest_year:year_2018)[!(smallest_year:year_2018) %in%
 
 # Games of 1989
 games_of_1989 <- vgsales[vgsales$Year == 1989,]
+
+# Count video games by platform
+vg_by_platform <- vgsales %>% count(Platform)
+
+# Platform with most number of games
+most_number_of_games_by_platform_idx <- which.max(vg_by_platform$n)
+most_number_of_games_platform <- vg_by_platform[most_number_of_games_by_platform_idx,]
+
+# Platform with less number of games
+less_number_of_games_by_platform_idx <- which.min(vg_by_platform$n)
+less_number_of_games_platform <- vg_by_platform[less_number_of_games_by_platform_idx,]
+
+# Games from Platform GG
+games_from_platform_gg <- vgsales[vgsales$Platform == "GG",]$Name
