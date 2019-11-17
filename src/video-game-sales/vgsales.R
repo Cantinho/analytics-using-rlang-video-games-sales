@@ -62,6 +62,9 @@ less_number_of_games_year <- vg_by_year[less_number_of_games_by_year_idx,]
 # Count video games by genre
 vg_by_genre <- vgsales %>% count(Genre)
 
+# Sorting video games count by genre in decreasing order
+vg_by_genre <- vg_by_genre[order(vg_by_genre$n, decreasing = TRUE),]
+
 # Genre with most number of games
 most_number_of_games_by_genre_idx <- which.max(vg_by_genre$n)
 most_number_of_games_genre <- vg_by_genre[most_number_of_games_by_genre_idx,]
