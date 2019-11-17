@@ -26,8 +26,12 @@ library(dplyr)
 properties <- c("Rank", "Name", "Platform", "Year", "Genre",
                 "Publisher", "NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales")
 
-# Import vgsales.csv: vgsales
+# Import vgsales.csv: raw_vgsales
 vgsales <- read_csv("vgsales.csv", skip = 1, col_types = "icciccddddd", col_names = properties)
+
+year_2018 <- 2018 
+# Filtering to work with year until 2018, inclusive.
+vgsales <- vgsales %>% filter(vgsales$Year <= year_2018)
 
 # Call head() on vgsales
 head(vgsales)
@@ -65,3 +69,12 @@ most_number_of_games_genre <- vg_by_genre[most_number_of_games_by_genre_idx,]
 # Genre with less number of games
 less_number_of_games_by_genre_idx <- which.min(vg_by_genre$n)
 less_number_of_games_by_genre <- vg_by_genre[less_number_of_games_by_genre_idx,]
+
+# Years with sales
+years_with_sales <- sort(unique(vgsales$Year, na.rm = TRUE))
+
+# Years without sales
+years_without_sales <- (smallest_year:year_2018)[!(smallest_year:year_2018) %in% years_with_sales]
+
+# Games of 1989
+games_of_1989 <- vgsales[vgsales$Year == 1989,]
