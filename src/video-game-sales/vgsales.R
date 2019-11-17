@@ -47,3 +47,11 @@ greatest_year = max(vgsales$Year, na.rm = TRUE)
 # Count video games by year
 vg_by_year <- vgsales %>% count(Year)
 
+# Year with most number of games
+most_number_of_games_idx <- which.max(vg_by_year$n)
+most_number_of_games_year <- vg_by_year[most_number_of_games_idx,]
+
+# Year with less number of games
+less_number_of_games_idx <- which.min(vg_by_year$n)
+less_number_of_games_year <- vg_by_year[less_number_of_games_idx,]
+
