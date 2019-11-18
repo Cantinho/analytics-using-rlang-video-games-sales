@@ -51,6 +51,9 @@ greatest_year = max(vgsales$Year, na.rm = TRUE)
 # Count video games by year
 vg_by_year <- vgsales %>% count(Year)
 
+# Sorting video games count by year in decreasing order
+vg_by_year_in_decreasing_order <- vg_by_year[order(vg_by_year$n, decreasing = TRUE),]
+
 # Year with most number of games
 most_number_of_games_by_year_idx <- which.max(vg_by_year$n)
 most_number_of_games_year <- vg_by_year[most_number_of_games_by_year_idx,]
@@ -95,3 +98,13 @@ less_number_of_games_platform <- vg_by_platform[less_number_of_games_by_platform
 
 # Games from Platform GG
 games_from_platform_gg <- vgsales[vgsales$Platform == "GG",]$Name
+
+
+# Count video games by publisher
+vg_by_publisher <- vgsales %>% count(Publisher)
+
+# Sorting video games count by publisher in decreasing order
+vg_by_publisher <- vg_by_publisher[order(vg_by_publisher$n, decreasing = TRUE),]
+
+# Video Game by Publisher Summary
+summary(vg_by_publisher)
