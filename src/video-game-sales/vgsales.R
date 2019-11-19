@@ -126,3 +126,36 @@ other_locations_vg_sales_by_year <- aggregate(vgsales$Other_Sales, by=list(Year=
 # Count Global video games sales by year
 # Global_Sales - Sales in Global (in millions)
 global_vg_sales_by_year <- aggregate(vgsales$Global_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
+
+
+# Correlations
+# Correlation between Global and North America Sales
+cor(global_vg_sales_by_year, north_america_vg_sales_by_year)
+
+# Correlation between Global and Europe Sales
+cor(global_vg_sales_by_year, europe_vg_sales_by_year)
+
+# Correlation between Global and Japan Sales
+cor(global_vg_sales_by_year,japan_vg_sales_by_year)
+
+# Correlation between Global and Other Countries Sales
+cor(global_vg_sales_by_year, other_locations_vg_sales_by_year)
+
+# Correlation between North America and Europe Sales
+cor(north_america_vg_sales_by_year, europe_vg_sales_by_year)
+
+# Correlation between North America and Japan Sales
+cor(north_america_vg_sales_by_year, japan_vg_sales_by_year)
+
+# Correlation between North America and Other Countries Sales
+cor(north_america_vg_sales_by_year, other_locations_vg_sales_by_year)
+
+# Correlation between Europe and Japan Sales
+cor(europe_vg_sales_by_year, japan_vg_sales_by_year)
+
+# Correlation between Europe and Other Countries Sales
+cor(europe_vg_sales_by_year, other_locations_vg_sales_by_year)
+
+# Correlation between Japan and Other Countries Sales
+cor(japan_vg_sales_by_year, other_locations_vg_sales_by_year)
+
