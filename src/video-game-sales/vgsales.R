@@ -25,11 +25,15 @@ properties <- c("Rank", "Name", "Platform", "Year", "Genre",
                 "Publisher", "NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales")
 
 # Import vgsales.csv: raw_vgsales
-vgsales <- read_csv("vgsales.csv", skip = 1, col_types = "icciccddddd", col_names = properties)
+vgsales <- read_csv("vgsales.csv", skip = 1, col_types = "icfiffddddd", col_names = properties)
 
 year_2018 <- 2018 
 # Filtering to work with year until 2018, inclusive.
 vgsales <- vgsales %>% filter(vgsales$Year <= year_2018)
+
+# A good practice when you import a dataset is to use the glimpse() function to have an idea about the structure of the dataset.
+# Structure of the data
+glimpse(vgsales)
 
 # Call head() on vgsales
 head(vgsales)
@@ -128,7 +132,25 @@ other_locations_vg_sales_by_year <- aggregate(vgsales$Other_Sales, by=list(Year=
 global_vg_sales_by_year <- aggregate(vgsales$Global_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
 
 
+
 # Correlations
+#
+# Excursion: Correlation
+# If you're familiar with statistics, you'll have heard about Pearson's Correlation. 
+# It is a measurement to evaluate the linear dependency between two variables, say X and Y. 
+# It can range from -1 to 1; if it's close to 1 it means that there is a strong positive association between the variables. 
+# If X is high, also Y tends to be high. If it's close to -1, there is a strong negative association: If X is high, Y tends to be low. 
+# When the Pearson correlation between two variables is 0, these variables are possibly independent: there is no association between X and Y.
+#
+# You can calculate the correlation between two vectors with the cor() function. 
+# Take this code for example, that computes the correlation between the columns height and width of a fictional data frame size:
+#
+# cor(size$height, size$width)
+# The data you've worked with in the previous exercise, international.sav, is again available in your working directory. 
+# It's now up to import it and undertake the correct calculations to answer the following question:
+#
+#
+#
 # Correlation between Global and North America Sales
 cor(global_vg_sales_by_year, north_america_vg_sales_by_year)
 
@@ -159,3 +181,13 @@ cor(europe_vg_sales_by_year, other_locations_vg_sales_by_year)
 # Correlation between Japan and Other Countries Sales
 cor(japan_vg_sales_by_year, other_locations_vg_sales_by_year)
 
+
+
+# Count video games by platform per year
+vg_sales_by_year <- aggregate(vgsales$Global_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Filter genre sports and platform wii
+sports_wii <- vgsales[vgsales$Genre == "Sports" & vgsales$Platform == "Wii",]
+
+# Count wii sports sales grouped by year
+wii_sports_by_year = aggregate(ssports_wii$NA_Sales, by=list(Year=sports_wii$Year), FUN=sum) %>% group_by(Year)
