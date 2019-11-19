@@ -118,3 +118,7 @@ europe_vg_sales_by_year <- aggregate(vgsales$EU_Sales, by=list(Year=vgsales$Year
 # Count Japan video games sales by year
 # JP_Sales - Sales in Japan (in millions)
 japan_vg_sales_by_year <- aggregate(vgsales$JP_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Count Other Location video games sales by year
+# Other_Sales - Sales in Other locations (in millions)
+other_locations_vg_sales_by_year <- aggregate(vgsales$Other_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
