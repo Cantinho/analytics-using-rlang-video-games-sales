@@ -108,5 +108,9 @@ vg_by_publisher <- vg_by_publisher[order(vg_by_publisher$n, decreasing = TRUE),]
 summary(vg_by_publisher)
 
 # Count North America video games sales by year
+# NA_Sales - Sales in North America (in millions)
 north_america_vg_sales_by_year <- aggregate(vgsales$NA_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
 
+# Count North America video games sales by year
+# EU_Sales - Sales in Europe (in millions)
+europe_vg_sales_by_year <- aggregate(vgsales$EU_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
