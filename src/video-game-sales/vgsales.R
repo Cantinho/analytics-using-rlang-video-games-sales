@@ -13,9 +13,7 @@
 # Other_Sales - Sales in the rest of the world (in millions)
 # Global_Sales - Total worldwide sales.
 #
-#
-#
-#
+
 
 
 # Import libraries
@@ -108,3 +106,7 @@ vg_by_publisher <- vg_by_publisher[order(vg_by_publisher$n, decreasing = TRUE),]
 
 # Video Game by Publisher Summary
 summary(vg_by_publisher)
+
+# Count North America video games sales by year
+north_america_vg_sales_by_year <- aggregate(vgsales$NA_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
+
