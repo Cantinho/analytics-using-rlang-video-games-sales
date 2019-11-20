@@ -202,4 +202,6 @@ sports_vgsales <- vgsales[vgsales$Genre == "Sports",]
 # Count sports sales grouped by year
 sports_by_year = aggregate(sports_vgsales$NA_Sales, by=list(Year=sports_vgsales$Year), FUN=sum) %>% group_by(Year)
 
+# Plot Sport data grouped by year
+plot(sports_by_year)
 
