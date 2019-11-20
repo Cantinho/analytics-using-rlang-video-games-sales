@@ -234,3 +234,13 @@ rpg_by_year = aggregate(rpg_vgsales$NA_Sales, by=list(Year=rpg_vgsales$Year), FU
 
 # Plot rpg data grouped by year
 plot(rpg_by_year)
+
+
+# Filter genre Shooter
+shooter_vgsales <- vgsales[vgsales$Genre == "Shooter",]
+
+# Count shooter sales grouped by year
+shooter_by_year = aggregate(shooter_vgsales$NA_Sales, by=list(Year=shooter_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot shooter data grouped by year
+plot(shooter_by_year)
