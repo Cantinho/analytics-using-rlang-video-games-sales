@@ -214,3 +214,13 @@ action_by_year = aggregate(action_vgsales$NA_Sales, by=list(Year=action_vgsales$
 
 # Plot action data grouped by year
 plot(action_by_year)
+
+
+# Filter genre misc
+misc_vgsales <- vgsales[vgsales$Genre == "Misc",]
+
+# Count misc sales grouped by year
+misc_by_year = aggregate(misc_vgsales$NA_Sales, by=list(Year=misc_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot misc data grouped by year
+plot(misc_by_year)
