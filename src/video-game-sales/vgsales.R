@@ -244,3 +244,16 @@ shooter_by_year = aggregate(shooter_vgsales$NA_Sales, by=list(Year=shooter_vgsal
 
 # Plot shooter data grouped by year
 plot(shooter_by_year)
+
+
+# Filter genre Adventure
+adventure_vgsales <- vgsales[vgsales$Genre == "Adventure",]
+
+# Count adventure sales grouped by year
+adventure_by_year = aggregate(adventure_vgsales$NA_Sales, by=list(Year=adventure_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot adventure data grouped by year
+plot(adventure_by_year)
+
+
+
