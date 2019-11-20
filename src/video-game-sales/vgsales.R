@@ -255,5 +255,8 @@ adventure_by_year = aggregate(adventure_vgsales$NA_Sales, by=list(Year=adventure
 # Plot adventure data grouped by year
 plot(adventure_by_year)
 
-
+#
+# Analyse period in the console releases
+# https://pt.wikipedia.org/wiki/Lista_de_consoles_de_videogame
+#
 
