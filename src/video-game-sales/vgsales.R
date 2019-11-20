@@ -224,3 +224,13 @@ misc_by_year = aggregate(misc_vgsales$NA_Sales, by=list(Year=misc_vgsales$Year),
 
 # Plot misc data grouped by year
 plot(misc_by_year)
+
+
+# Filter genre Role-Playing
+rpg_vgsales <- vgsales[vgsales$Genre == "Role-Playing",]
+
+# Count rpg sales grouped by year
+rpg_by_year = aggregate(rpg_vgsales$NA_Sales, by=list(Year=rpg_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot rpg data grouped by year
+plot(rpg_by_year)
