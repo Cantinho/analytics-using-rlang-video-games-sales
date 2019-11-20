@@ -186,8 +186,20 @@ cor(japan_vg_sales_by_year, other_locations_vg_sales_by_year)
 # Count video games by platform per year
 vg_sales_by_year <- aggregate(vgsales$Global_Sales, by=list(Year=vgsales$Year), FUN=sum) %>% group_by(Year)
 
+# Sport games
 # Filter genre sports and platform wii
 sports_wii <- vgsales[vgsales$Genre == "Sports" & vgsales$Platform == "Wii",]
 
 # Count wii sports sales grouped by year
-wii_sports_by_year = aggregate(ssports_wii$NA_Sales, by=list(Year=sports_wii$Year), FUN=sum) %>% group_by(Year)
+wii_sports_by_year = aggregate(sports_wii$NA_Sales, by=list(Year=sports_wii$Year), FUN=sum) %>% group_by(Year)
+
+# Plot Wii Sport data grouped by year
+plot(wii_sports_by_year)
+
+# Filter genre sports
+sports_vgsales <- vgsales[vgsales$Genre == "Sports",]
+
+# Count sports sales grouped by year
+sports_by_year = aggregate(sports_vgsales$NA_Sales, by=list(Year=sports_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+
