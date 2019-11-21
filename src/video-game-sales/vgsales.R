@@ -265,6 +265,16 @@ racing_by_year = aggregate(racing_vgsales$NA_Sales, by=list(Year=racing_vgsales$
 # Plot racing data grouped by year
 plot(racing_by_year)
 
+
+# Filter genre Platform
+platform_vgsales <- vgsales[vgsales$Genre == "Platform",]
+
+# Count platform sales grouped by year
+platform_by_year = aggregate(platform_vgsales$NA_Sales, by=list(Year=platform_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot platform data grouped by year
+plot(platform_by_year)
+
 #
 # Analyse period in the console releases
 # https://pt.wikipedia.org/wiki/Lista_de_consoles_de_videogame
