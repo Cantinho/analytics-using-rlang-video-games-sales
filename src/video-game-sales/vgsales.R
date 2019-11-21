@@ -305,6 +305,17 @@ strategy_by_year = aggregate(strategy_vgsales$NA_Sales, by=list(Year=strategy_vg
 # Plot strategy data grouped by year
 plot(strategy_by_year)
 
+
+# Filter genre Puzzle
+puzzle_vgsales <- vgsales[vgsales$Genre == "Puzzle",]
+
+# Count puzzle sales grouped by year
+puzzle_by_year = aggregate(puzzle_vgsales$NA_Sales, by=list(Year=puzzle_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot puzzle data grouped by year
+plot(puzzle_by_year)
+
+
 #
 # Analyse period in the console releases
 # https://pt.wikipedia.org/wiki/Lista_de_consoles_de_videogame
