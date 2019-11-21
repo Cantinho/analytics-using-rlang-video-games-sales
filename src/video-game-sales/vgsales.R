@@ -295,6 +295,16 @@ fighting_by_year = aggregate(fighting_vgsales$NA_Sales, by=list(Year=fighting_vg
 # Plot fighting data grouped by year
 plot(fighting_by_year)
 
+
+# Filter genre Strategy
+strategy_vgsales <- vgsales[vgsales$Genre == "Strategy",]
+
+# Count strategy sales grouped by year
+strategy_by_year = aggregate(strategy_vgsales$NA_Sales, by=list(Year=strategy_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot strategy data grouped by year
+plot(strategy_by_year)
+
 #
 # Analyse period in the console releases
 # https://pt.wikipedia.org/wiki/Lista_de_consoles_de_videogame
