@@ -285,6 +285,16 @@ simulation_by_year = aggregate(simulation_vgsales$NA_Sales, by=list(Year=simulat
 # Plot simulation data grouped by year
 plot(simulation_by_year)
 
+
+# Filter genre Fighting
+fighting_vgsales <- vgsales[vgsales$Genre == "Fighting",]
+
+# Count fighting sales grouped by year
+fighting_by_year = aggregate(fighting_vgsales$NA_Sales, by=list(Year=fighting_vgsales$Year), FUN=sum) %>% group_by(Year)
+
+# Plot fighting data grouped by year
+plot(fighting_by_year)
+
 #
 # Analyse period in the console releases
 # https://pt.wikipedia.org/wiki/Lista_de_consoles_de_videogame
