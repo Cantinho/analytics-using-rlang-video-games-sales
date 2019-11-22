@@ -357,6 +357,11 @@ adventure_missing <- empty_table %>% filter(!Year %in% adventure_by_year$Year)
 adventure_by_year_filled <- bind_rows(adventure_by_year, adventure_missing)
 
 
+# Filling racing by year
+racing_missing <- empty_table %>% filter(!Year %in% racing_by_year$Year)
+racing_by_year_filled <- bind_rows(racing_by_year, racing_missing)
+
+
 # Filling puzzle by year
 puzzle_missing <- empty_table %>% filter(!Year %in% puzzle_by_year$Year)
 puzzle_by_year_filled <- bind_rows(puzzle_by_year, puzzle_missing)
