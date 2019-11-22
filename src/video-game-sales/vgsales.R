@@ -321,3 +321,11 @@ plot(puzzle_by_year)
 # https://pt.wikipedia.org/wiki/Lista_de_consoles_de_videogame
 #
 
+Year = smallest_year:greatest_year
+x = 0
+empty_table = data.frame(Year, x)
+empty_table <- as_tibble(empty_table)
+
+puzzle_missing <- empty_table %>% filter(!Year %in% puzzle_by_year$Year)
+puzzle_by_year_filled <- bind_rows(puzzle_by_year, puzzle_missing)
+
