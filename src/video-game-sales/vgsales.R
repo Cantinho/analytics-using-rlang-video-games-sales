@@ -352,6 +352,10 @@ shooter_missing <- empty_table %>% filter(!Year %in% shooter_by_year$Year)
 shooter_by_year_filled <- bind_rows(shooter_by_year, shooter_missing)
 
 
+# Filling adventure by year
+adventure_missing <- empty_table %>% filter(!Year %in% adventure_by_year$Year)
+adventure_by_year_filled <- bind_rows(adventure_by_year, adventure_missing)
+
 
 # Filling puzzle by year
 puzzle_missing <- empty_table %>% filter(!Year %in% puzzle_by_year$Year)
