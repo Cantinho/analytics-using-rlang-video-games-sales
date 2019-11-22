@@ -326,6 +326,12 @@ x = 0
 empty_table = data.frame(Year, x)
 empty_table <- as_tibble(empty_table)
 
+
+# Filling action by year
+action_missing <- empty_table %>% filter(!Year %in% action_by_year$Year)
+action_by_year_filled <- bind_rows(action_by_year, action_missing)
+
+# Filling puzzle by year
 puzzle_missing <- empty_table %>% filter(!Year %in% puzzle_by_year$Year)
 puzzle_by_year_filled <- bind_rows(puzzle_by_year, puzzle_missing)
 
