@@ -342,7 +342,9 @@ misc_missing <- empty_table %>% filter(!Year %in% misc_by_year$Year)
 misc_by_year_filled <- bind_rows(misc_by_year, misc_missing)
 
 
-
+# Filling rpg by year
+rpg_missing <- empty_table %>% filter(!Year %in% rpg_by_year$Year)
+rpg_by_year_filled <- bind_rows(rpg_by_year, rpg_missing)
 
 
 # Filling puzzle by year
