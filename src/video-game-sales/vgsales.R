@@ -372,6 +372,11 @@ simulation_missing <- empty_table %>% filter(!Year %in% simulation_by_year$Year)
 simulation_by_year_filled <- bind_rows(simulation_by_year, simulation_missing)
 
 
+# Filling fighting by year
+fighting_missing <- empty_table %>% filter(!Year %in% fighting_by_year$Year)
+fighting_by_year_filled <- bind_rows(fighting_by_year, fighting_missing)
+
+
 # Filling puzzle by year
 puzzle_missing <- empty_table %>% filter(!Year %in% puzzle_by_year$Year)
 puzzle_by_year_filled <- bind_rows(puzzle_by_year, puzzle_missing)
