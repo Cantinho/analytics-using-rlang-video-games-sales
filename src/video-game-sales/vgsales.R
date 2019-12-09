@@ -19,6 +19,8 @@
 # Import libraries
 library(readr)
 library(dplyr)
+library(fitdistrplus)
+library(logspline)
 
 # Column names
 properties <- c("Rank", "Name", "Platform", "Year", "Genre",
@@ -396,3 +398,16 @@ plot(strategy_by_year_filled, main="strategy_by_year_filled")
 puzzle_missing <- empty_table %>% filter(!Year %in% puzzle_by_year$Year)
 puzzle_by_year_filled <- bind_rows(puzzle_by_year, puzzle_missing)
 plot(puzzle_by_year_filled, main="puzzle_by_year_filled")
+
+# Find distributions using fitdistrplus and logspline
+descdist(action_by_year_filled$x, discrete = FALSE)
+descdist(sports_by_year_filled$x, discrete = FALSE)
+descdist(misc_by_year_filled$x, discrete = FALSE)
+descdist(rpg_by_year_filled$x, discrete = FALSE)
+descdist(adventure_by_year_filled$x, discrete = FALSE)
+descdist(racing_by_year_filled$x, discrete = FALSE)
+descdist(platform_by_year_filled$x, discrete = FALSE)
+descdist(simulation_by_year_filled$x, discrete = FALSE)
+descdist(fighting_by_year_filled$x, discrete = FALSE)
+descdist(strategy_by_year_filled$x, discrete = FALSE)
+descdist(puzzle_by_year_filled$x, discrete = FALSE)
