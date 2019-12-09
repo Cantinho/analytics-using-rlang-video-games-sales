@@ -330,58 +330,69 @@ empty_table <- as_tibble(empty_table)
 # Filling action by year
 action_missing <- empty_table %>% filter(!Year %in% action_by_year$Year)
 action_by_year_filled <- bind_rows(action_by_year, action_missing)
-
+plot(action_by_year_filled, main="action_by_year_filled")
 
 # Filling sports by year
 sports_missing <- empty_table %>% filter(!Year %in% sports_by_year$Year)
 sports_by_year_filled <- bind_rows(sports_by_year, sports_missing)
+plot(sports_by_year_filled, main="sports_by_year_filled")
 
 
 # Filling misc by year
 misc_missing <- empty_table %>% filter(!Year %in% misc_by_year$Year)
 misc_by_year_filled <- bind_rows(misc_by_year, misc_missing)
+plot(misc_by_year_filled, main="misc_by_year_filled")
 
 
 # Filling rpg by year
 rpg_missing <- empty_table %>% filter(!Year %in% rpg_by_year$Year)
 rpg_by_year_filled <- bind_rows(rpg_by_year, rpg_missing)
+plot(rpg_by_year_filled, main="rpg_by_year_filled")
 
 
 # Filling shooter by year
 shooter_missing <- empty_table %>% filter(!Year %in% shooter_by_year$Year)
 shooter_by_year_filled <- bind_rows(shooter_by_year, shooter_missing)
+plot(shooter_by_year_filled, main="shooter_by_year_filled")
 
 
 # Filling adventure by year
 adventure_missing <- empty_table %>% filter(!Year %in% adventure_by_year$Year)
 adventure_by_year_filled <- bind_rows(adventure_by_year, adventure_missing)
+plot(adventure_by_year_filled, main="adventure_by_year_filled")
 
 
 # Filling racing by year
 racing_missing <- empty_table %>% filter(!Year %in% racing_by_year$Year)
 racing_by_year_filled <- bind_rows(racing_by_year, racing_missing)
+plot(racing_by_year_filled, main="racing_by_year_filled")
 
 
 # Filling platform by year
 platform_missing <- empty_table %>% filter(!Year %in% platform_by_year$Year)
 platform_by_year_filled <- bind_rows(platform_by_year, platform_missing)
+plot(platform_by_year_filled, main="platform_by_year_filled")
 
 
 # Filling simulation by year
 simulation_missing <- empty_table %>% filter(!Year %in% simulation_by_year$Year)
 simulation_by_year_filled <- bind_rows(simulation_by_year, simulation_missing)
+plot(simulation_by_year_filled, main="simulation_by_year_filled")
 
 
 # Filling fighting by year
 fighting_missing <- empty_table %>% filter(!Year %in% fighting_by_year$Year)
 fighting_by_year_filled <- bind_rows(fighting_by_year, fighting_missing)
+plot(fighting_by_year_filled, main="fighting_by_year_filled")
 
 
 # Filling strategy by year
 strategy_missing <- empty_table %>% filter(!Year %in% strategy_by_year$Year)
 strategy_by_year_filled <- bind_rows(strategy_by_year, strategy_missing)
+plot(strategy_by_year_filled, main="strategy_by_year_filled")
 
 
 # Filling puzzle by year
 puzzle_missing <- empty_table %>% filter(!Year %in% puzzle_by_year$Year)
 puzzle_by_year_filled <- bind_rows(puzzle_by_year, puzzle_missing)
+plot(puzzle_by_year_filled, main="puzzle_by_year_filled")
