@@ -437,3 +437,18 @@ summary(simulation_by_year_filled$x)
 summary(fighting_by_year_filled$x)
 summary(strategy_by_year_filled$x)
 summary(puzzle_by_year_filled$x)
+
+# correlation between action_by_year_filled and sports_by_year_filled
+cor(action_by_year_filled$x, sports_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+
+# correlation between action_by_year_filled and others
+cor(action_by_year_filled$x, misc_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, rpg_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, adventure_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, racing_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, platform_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, simulation_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, fighting_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, strategy_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+cor(action_by_year_filled$x, puzzle_by_year_filled$x, method = c("pearson", "kendall", "spearman"))
+
